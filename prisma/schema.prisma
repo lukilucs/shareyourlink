@@ -1,0 +1,18 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Sharing_Link {
+  id         String   @id @default(uuid())
+  code       String   @unique
+  link       String   @db.Text
+  identifier String
+  createdAt  DateTime @default(now())
+
+  @@index([createdAt])
+}
