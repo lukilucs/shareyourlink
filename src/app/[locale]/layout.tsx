@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Courier_Prime } from "next/font/google";
+import { vt323 } from "@/app/fonts/fonts";
 import "./globals.css";
 
 // Translations
@@ -11,12 +11,13 @@ import { getMessages } from "next-intl/server";
 // Components
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { TopBar } from "@/components/navigation/topbar";
+import { NavBar } from "@/components/navigation/navbar";
+import { Footer } from "@/components/navigation/footer";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-// Metadata
 type ParamsType = { locale: string };
 
 export async function generateMetadata({
@@ -48,15 +49,6 @@ export async function generateMetadata({
   };
 }
 
-// Fonts
-const courierPrime = Courier_Prime({
-  weight: ["400", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-courier-prime",
-  subsets: ["latin"],
-  display: "swap",
-});
-
 export default async function RootLayout({
   children,
   params,
@@ -69,12 +61,20 @@ export default async function RootLayout({
     notFound();
   }
   return (
-    <html lang={locale}>
-      <body className={`${courierPrime.variable} antialiased`}>
+    <html lang={locale} suppressHydrationWarning>
+      {/* Añadimos font-sans aquí */}
+      <body className={`${vt323.variable} font-sans antialiased`}>
         <NextIntlClientProvider>
-          <ThemeProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
             <TopBar />
+            <NavBar />
             {children}
+            <Footer />
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>

@@ -1,6 +1,99 @@
 {
-    "Metadata": {
-        "title": "ShareYourLink",
-        "description": "Comparte tus enlaces con un código simple y permite que otros los accedan fácilmente. No más URLs largas, solo un código corto para compartir tus enlaces con cualquiera, en cualquier lugar."
-     }
+  "Metadata": {
+    "title": "ShareYourLink",
+    "description": "Comparte tus enlaces con un codigo simple y permite que otros los accedan facilmente. No mas URLs largas, solo un codigo corto para compartir tus enlaces con cualquiera, en cualquier lugar."
+  },
+  "LanguageDropdown": {
+    "languageEN": "EN",
+    "languageES": "ES"
+  },
+  "Footer": {
+    "sections": {
+      "product": "Producto",
+      "resources": "Recursos",
+      "contact": "Contacto"
+    },
+    "links": {
+      "create": "Crear enlace",
+      "howItWorks": "Como funciona",
+      "cookies": "Cookies",
+      "contact": "Contacto",
+      "ideas": "Ideas"
+    },
+    "social": {
+      "github": "GitHub"
+    },
+    "builtBy": "Creado por"
+  },
+  "Menu": {
+    "createLink": "Crear enlace",
+    "getLink": "Obtener enlace"
+  },
+  "Landing": {
+    "title": "Bienvenido a ShareYourLink",
+    "description": "ShareYourLink es una herramienta de gestión de enlaces simple y eficiente que te permite compartir enlaces con facilidad. Ya sea que quieras compartir tus perfiles de redes sociales, portafolio, presentaciones o cualquier otro enlace importante, ShareYourLink tiene todo lo que necesitas. ¡Comienza a compartir!"
+  },
+  "HowItWorks": {
+    "title": "Cómo funciona",
+    "subtitle": "ShareYourLink es una herramienta de gestión de enlaces simple y eficiente que te permite compartir enlaces con facilidad. Ya sea que quieras compartir tus perfiles de redes sociales, portafolio, presentaciones o cualquier otro enlace importante, ShareYourLink tiene todo lo que necesitas. ¡Comienza a compartir!",
+    "section1Title": "Cómo funciona",
+    "section1Description1Title": "Crear enlace",
+    "section1Description1Description": "Pega tu enlace, obtendrás un ",
+    "section1Description1DescriptionHighlight": "código único",
+    "section1Description1Description2": " que puedes compartir con otros. Fácil y rápido, es así de simple, solo un código de 4 dígitos.",
+    "section1Description2Title": "Obtener enlace",
+    "section1Description2Description": "Pega el código que obtuviste y obtendrás el ",
+    "section1Description2DescriptionHighlight": "enlace original",
+    "section1Description2Description2": " de inmediato. No más URLs largas, solo un código corto para acceder a tus enlaces.",
+    "section2Title": "Pruébalo ahora, es gratis",
+    "section2Description1": "Simplemente pega tu enlace, obtén el código, compártelo y recupéralo cuando quieras. Sin registro, solo un servicio simple y gratuito para compartir tus enlaces con otros. Desarrollado con la idea de crear una plataforma donde puedas enviar y recibir enlaces sin enviar correos electrónicos ni iniciar sesión.",
+    "section2Description2": "Por ejemplo, quieres enviar el enlace de tu presentación al pc de la clase y no quieres enviar un correo electrónico porque no hay un cliente de correo disponible o no tienes acceso a uno.",
+    "section2Description3": "Sin tonterías, sin anuncios, sin seguimiento. Solo un servicio simple y gratuito para compartir tus enlaces con otros. Incluso puedes revisar nuestro código fuente abierto en ",
+    "section2Description3Highlight": "GitHub",
+    "section2Description4": "* Como medida antiabuso, guardamos la dirección IP de las solicitudes durante un máximo de 5 minutos para prevenir bots, spam y ráfagas de solicitudes tipo DDoS. Estos datos se eliminan automáticamente después del límite de tiempo y no se utilizan para ningún otro propósito.",
+    "section2Button": "¡COMIENZA YA!"
+  },
+  "Cookies": {
+    "title": "Politica de Cookies",
+    "subtitle": "Codigo abierto, simple y con privacidad primero. En ShareYourLink mantenemos todo intencionalmente simple. No mostramos anuncios, no creamos perfiles de usuarios y no usamos rastreadores invasivos. Solo usamos lo necesario para que la app funcione bien.",
+    "what_is_title": "1. Que es una cookie?",
+    "what_is_text": "Una cookie es un archivo pequeno que guarda tu navegador para que un sitio recuerde ajustes basicos. En ShareYourLink esto se limita a comportamiento tecnico, como el idioma.",
+    "types_title": "2. Cookies y tecnologías",
+    "types_intro": "Solo usamos funcionalidad esencial, analitica respetuosa con la privacidad y proteccion temporal contra abuso en servidor.",
+    "th_name": "Servicio / Proveedor",
+    "th_type": "Tipo",
+    "th_purpose": "Finalidad",
+    "c_tech_name": "ShareYourLink (Primera parte)",
+    "c_tech_type": "Tecnica / Sesion",
+    "c_tech_desc": "Guarda tu preferencia de idioma (por ejemplo, NEXT_LOCALE) para mostrar la interfaz en el idioma seleccionado.",
+    "c_umami_name": "Umami",
+    "c_umami_type": "Analitica anonima",
+    "c_umami_desc": "Mide trafico agregado (vistas de pagina, origenes y paginas populares) sin crear perfiles personales.",
+    "c_security_name": "ShareYourLink (Antiabuso)",
+    "c_security_type": "Seguridad",
+    "c_security_desc": "Almacena temporalmente datos de IP durante un maximo de 5 minutos para limitar bots, spam y rafagas de solicitudes tipo DDoS.",
+    "analytics_title": "3. Analitica de trafico con Umami",
+    "analytics_text": "Usamos Umami para entender el trafico general y mejorar ShareYourLink. No rastreamos usuarios entre sitios web y no creamos perfiles de comportamiento individuales.",
+    "manage_title": "4. Como gestionar cookies",
+    "manage_text": "Puedes bloquear o eliminar cookies desde la configuracion de tu navegador en cualquier momento. Si lo haces, algunas funciones basicas como la preferencia de idioma pueden dejar de funcionar correctamente:",
+    "manage_chrome": "Google Chrome",
+    "manage_safari": "Safari",
+    "manage_firefox": "Mozilla Firefox"
+  },
+  "ContactPage": {
+    "title": "Contacto",
+    "description": "ShareYourLink es un proyecto simple y de codigo abierto.",
+    "body": "Si tienes alguna duda, escribenos a"
+  },
+  "IdeasPage": {
+    "title": "Ideas",
+    "description": "ShareYourLink es un proyecto simple de codigo abierto construido para la comunidad.",
+    "body": "Si tienes cualquier duda, escribenos a",
+    "contribute": "Si quieres contribuir con una idea o mejora, abre un PR en"
+  },
+  "NotFound": {
+    "title": "Página No Encontrada",
+    "message": "¡Oops! Parece que la página que buscas no existe. Déjanos ayudarte a volver al camino correcto.",
+    "backHome": "Volver a Inicio"
+  }
 }

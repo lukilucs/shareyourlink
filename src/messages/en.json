@@ -1,6 +1,102 @@
 {
-    "Metadata": {
-        "title": "ShareYourLink",
-        "description": "Share your links with a simple code and let others access them easily. No more long URLs, just a short code to share your links with anyone, anywhere."
-     }
+  "Metadata": {
+    "title": "ShareYourLink",
+    "description": "Share your links with a simple code and let others access them easily. No more long URLs, just a short code to share your links with anyone, anywhere."
+  },
+  "LanguageDropdown": {
+    "languageEN": "EN",
+    "languageES": "ES"
+  },
+  "Footer": {
+    "sections": {
+      "product": "Product",
+      "resources": "Resources",
+      "contact": "Contact"
+    },
+    "links": {
+      "create": "Create link",
+      "howItWorks": "How it works",
+      "cookies": "Cookies",
+      "contact": "Contact",
+      "ideas": "Ideas"
+    },
+    "social": {
+      "github": "GitHub"
+    },
+    "builtBy": "Built by"
+  },
+  "Menu": {
+    "createLink": "Create Link",
+    "getLink": "Get Link"
+  },
+  "Landing": {
+    "title": "Welcome to ShareYourLink",
+    "description": "ShareYourLink is a simple and efficient link management tool that allows you to share links with ease. Whether you want to share your social media profiles, portfolio, presentations, or any other important links, ShareYourLink has got you covered. Start sharing!"
+  },
+  "HowItWorks": {
+    "title": "How it works",
+    "subtitle": "ShareYourLink is a simple and efficient link management tool that allows you to share links with ease. Whether you want to share your social media profiles, portfolio, presentations, or any other important links, ShareYourLink has got you covered. Start sharing!",
+    "section1Title": "How it works",
+    "section1Description1Title": "Create Link",
+    "section1Description1Description": "Paste your link, you will get a ",
+    "section1Description1DescriptionHighlight": "unique code",
+    "section1Description1Description2": " that you can share with others. Easy and fast, is that simple, just a 4 digits code.",
+    "section1Description2Title": "Get Link",
+    "section1Description2Description": "Paste the code you got and you will get the ",
+    "section1Description2DescriptionHighlight": "original link",
+    "section1Description2Description2": " instantly. No more long URLs, just a short code to access your links with anyone, anywhere.",
+    "section2Title": "Try it now, it's free!",
+    "section2Description1": "Just paste your link, get the code, share it and retrieve it whenever you want. No registration, just a simple and free service to share your links with others. Developed with the idea of creating a platfor where you can send and receive links without sending emails or logging in.",
+    "section2Description2": "Eg. You want to send your presentation link to the class pc and you don't want to send an email either because there is not an email client available or you don't have access to one.",
+    "section2Description3": "No bullshit, no ads, no tracking. Just a simple and free service to share your links with others. You can even check our open source code on ",
+    "section2Description3Highlight": "GitHub",
+    "section2Description4": "* As an antiabuse measure, we save the IP address of requests for a maximum of 5 minutes to prevent bots, spam, and DDoS-like request bursts. This data is automatically deleted after the time limit and is not used for any other purpose.",
+    "section2Button": "GET STARTED"
+  },
+  "Cookies": {
+    "title": "Cookie Policy",
+    "subtitle": "Open source, simple, and privacy-first. ShareYourLink keeps things intentionally minimal. We do not run ads, we do not build user profiles, and we do not use invasive trackers. We only use what is needed for the app to work properly.",
+    "what_is_title": "1. What is a cookie?",
+    "what_is_text": "A cookie is a small file your browser stores so a site can remember basic settings. On ShareYourLink, this is limited to technical behavior such as language preference.",
+    "types_title": "2. Cookies and tracking",
+    "types_intro": "We only use essential functionality, privacy-friendly analytics, and temporary server-side abuse protection.",
+
+    "th_name": "Service / Provider",
+    "th_type": "Type",
+    "th_purpose": "Purpose",
+
+    "c_tech_name": "ShareYourLink (First-party)",
+    "c_tech_type": "Technical / Session",
+    "c_tech_desc": "Stores your locale preference (for example, NEXT_LOCALE) so the interface loads in your selected language.",
+    "c_umami_name": "Umami",
+    "c_umami_type": "Anonymous Analytics",
+    "c_umami_desc": "Measures aggregate traffic (page views, referrers, popular pages) without building personal profiles.",
+    "c_security_name": "ShareYourLink (Server-side anti-abuse)",
+    "c_security_type": "Security",
+    "c_security_desc": "Temporarily stores IP address data for up to 5 minutes to limit bots, spam, and DDoS-like request bursts.",
+    "analytics_title": "3. Traffic analytics with Umami",
+    "analytics_text": "We use Umami to understand overall traffic and improve ShareYourLink. We do not track users across websites and we do not create individual behavioral profiles.",
+
+    "manage_title": "4. How to manage cookies",
+    "manage_text": "You can block or delete cookies from your browser settings at any time. If you do, basic features like language preference may stop working as expected:",
+    "manage_chrome": "Google Chrome",
+    "manage_safari": "Safari",
+    "manage_firefox": "Mozilla Firefox"
+  },
+  "ContactPage": {
+    "title": "Contact",
+    "description": "ShareYourLink is a simple open source project.",
+    "body": "If you have any questions or doubts, contact us at"
+  },
+  "IdeasPage": {
+    "title": "Ideas",
+    "description": "ShareYourLink is a simple open source project built for the community.",
+    "body": "If you have any questions, contact us at",
+    "contribute": "If you want to contribute an idea or improvement, open a PR on"
+  },
+  "NotFound": {
+    "title": "Page Not Found",
+    "message": "Oops! It looks like the page you're looking for doesn't exist. Let's get you back on track.",
+    "backHome": "Back to Home"
+  }
 }
