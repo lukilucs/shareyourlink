@@ -38,6 +38,11 @@ export async function generateMetadata({
       default: t("title"),
     },
     description: t("description"),
+    applicationName: "ShareYourLink",
+    appleWebApp: {
+      title: "ShareYourLink",
+      statusBarStyle: "default",
+    },
     alternates: {
       canonical: locale === "en" ? baseUrl : `${baseUrl}/${locale}`,
       languages: {
