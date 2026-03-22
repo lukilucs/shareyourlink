@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 
 const TIMER_SECONDS = 5 * 60;
 const initialState: CreateLinkActionState = {};
-const rotations = generateRandomRotations();
+const rotations = generateRandomRotations(4, 5);
 
 export default function CreateLinkForm() {
   const t = useTranslations("CreatePage");

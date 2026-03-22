@@ -16,10 +16,13 @@ export function generateUniqueCode(): string {
   return result;
 }
 
-export function generateRandomRotations() {
+export function generateRandomRotations(
+  numberOfRotations: number,
+  maxAngle: number,
+): number[] {
   let randomAngles = [];
-  for (let i = 0; i < 10; i++) {
-    const randomAngle = Math.floor(Math.random() * 6); // Random angle between 0 and 5 degrees
+  for (let i = 0; i < numberOfRotations; i++) {
+    const randomAngle = Math.floor(Math.random() * maxAngle) + 1; // Random angle between 1 and maxAngle degrees
     randomAngles.push(randomAngle);
   }
   return randomAngles;

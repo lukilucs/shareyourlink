@@ -107,7 +107,7 @@
     "submitting": "Recuperando...",
     "resetButton": "Obtener otro enlace",
     "successTitle": "Aquí está tu enlace",
-    "disclaimer": "* Hacer clic en el enlace recuperado lo abrirá en la pestaña actual, mientras que hacer clic en el ícono del enlace lo abrirá en una nueva pestaña. No rastreamos clics ni el comportamiento del usuario, pero ten cuidado al compartir enlaces y solo comparte con partes de confianza."
+    "disclaimer": "* Hacer clic en el enlace recuperado lo abrirá en una nueva pestaña. No rastreamos clics ni el comportamiento del usuario, pero ten cuidado al compartir enlaces y solo comparte con partes de confianza."
   },
   "IdeasPage": {
     "title": "Ideas",

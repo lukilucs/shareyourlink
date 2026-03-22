@@ -110,7 +110,7 @@
     "submitting": "Retrieving...",
     "successTitle": "Here is your link",
     "resetButton": "Get another link",
-    "disclaimer": "* Clicking the retrieved link will open it in the tab while clicking the link icon will open it in a new tab. We do not track clicks or user behavior, but please be cautious when sharing links and only share with trusted parties."
+    "disclaimer": "* Clicking the retrieved link will open it in a new tab. We do not track clicks or user behavior, but please be cautious when sharing links and only share with trusted parties."
   },
   "IdeasPage": {
     "title": "Ideas",
