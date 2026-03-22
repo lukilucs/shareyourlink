@@ -13,13 +13,23 @@ export const Footer = () => {
     {
       group: t("sections.product"),
       items: [
-        { title: t("links.create"), href: "/" },
-        { title: t("links.howItWorks"), href: "/how-it-works" },
+        {
+          title: t("links.home"),
+          href: "/",
+        },
+        { title: t("links.create"), href: "/create" },
+        {
+          title: t("links.get"),
+          href: "/get",
+        },
       ],
     },
     {
       group: t("sections.resources"),
-      items: [{ title: t("links.cookies"), href: "/cookies" }],
+      items: [
+        { title: t("links.howItWorks"), href: "/how-it-works" },
+        { title: t("links.cookies"), href: "/cookies" },
+      ],
     },
     {
       group: t("sections.contact"),
@@ -76,21 +86,21 @@ export const Footer = () => {
             {links.map((link, index) => (
               <div
                 key={index}
-                className="flex flex-col items-center space-y-4 text-lg md:items-start"
+                className="flex flex-col items-center space-y-4 text-xl md:items-start"
               >
-                <span className="block text-xl font-bold tracking-wide text-foreground">
+                <span className="block text-2xl font-bold tracking-wide text-foreground">
                   {link.group}
                 </span>
                 <div className="flex flex-col items-center space-y-3 md:items-start">
                   {link.items.map((item, idx) => (
                     <span key={idx}>
                       {item.href === "#" ? (
-                        <a
+                        <Link
                           href="#"
                           className="text-muted-foreground transition-colors duration-200 hover:text-primary hover:underline"
                         >
                           {item.title}
-                        </a>
+                        </Link>
                       ) : (
                         <Link
                           href={item.href}
@@ -106,19 +116,19 @@ export const Footer = () => {
             ))}
           </div>
         </div>
-        <div className="mt-16 flex flex-wrap items-end justify-between gap-6 border-t border-border/50 pt-8 text-xl">
+        <div className="mt-16 flex flex-wrap items-end justify-between gap-6 border-t border-border/50 pt-8 text-2xl">
           <div className="order-first">
             <small className="block tracking-wide text-muted-foreground">
               <span className="text-muted-foreground">{t("builtBy")} </span>
               <span className="text-primary">
-                <a
+                <Link
                   href="https://lucasreloj.work"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline"
                 >
                   Lucas García
-                </a>
+                </Link>
               </span>
             </small>
           </div>

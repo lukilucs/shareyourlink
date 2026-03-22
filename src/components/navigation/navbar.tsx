@@ -5,7 +5,10 @@ export const NavBar = () => {
   return (
     <>
       <nav className="w-full flex justify-center pt-5 pb-8">
-        <Link href="/">
+        <Link
+          href="/"
+          className="transition-transform duration-300 ease-out hover:scale-[1.02]"
+        >
           <Logo size="3xl" sizeMd="6xl" />
         </Link>
       </nav>

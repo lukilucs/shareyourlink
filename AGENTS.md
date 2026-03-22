@@ -113,9 +113,9 @@ These rules reflect the existing codebase and configs.
 ### 6.2 Imports
 
 - Order imports in three groups (top to bottom):
-  1) framework/external packages
-  2) internal aliases (`@/...`)
-  3) relative imports (`./`, `../`)
+  1. framework/external packages
+  2. internal aliases (`@/...`)
+  3. relative imports (`./`, `../`)
 - Keep a blank line between groups when it improves readability.
 - Prefer alias imports (`@/*`) over deep relative traversal when possible.
 - Remove unused imports immediately (ESLint enforces this indirectly).
@@ -200,3 +200,7 @@ These rules reflect the existing codebase and configs.
 - `bun run start`
 - `bunx prisma generate`
 - `bunx prisma migrate dev --name <name>`
+
+## Generate hash
+
+bun -e "console.log(crypto.randomUUID() + crypto.randomUUID())"

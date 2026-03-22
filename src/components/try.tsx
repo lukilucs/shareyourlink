@@ -1,6 +1,6 @@
-import React from "react";
 import { Button } from "./ui/button";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 const Try = () => {
   const t = useTranslations("HowItWorks");
@@ -25,7 +25,7 @@ const Try = () => {
 
           <div className="relative group flex flex-col items-center justify-center py-2 mb:py-5">
             <Button className="relative z-10 h-auto text-2xl md:text-4xl px-8 py-4 font-black uppercase italic hover:scale-105 transition-transform">
-              {t("section2Button")}
+              <Link href="/">{t("section2Button")}</Link>
             </Button>
           </div>
         </div>

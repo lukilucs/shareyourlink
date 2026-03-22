@@ -14,7 +14,9 @@
       "contact": "Contacto"
     },
     "links": {
+      "home": "Inicio",
       "create": "Crear enlace",
+      "get": "Obtener enlace",
       "howItWorks": "Como funciona",
       "cookies": "Cookies",
       "contact": "Contacto",
@@ -84,6 +86,28 @@
     "title": "Contacto",
     "description": "ShareYourLink es un proyecto simple y de codigo abierto.",
     "body": "Si tienes alguna duda, escribenos a"
+  },
+  "CreatePage": {
+    "title": "Crear enlace",
+    "description": "Pega cualquier URL y obtén un código de 4 dígitos para compartir. El código se mantiene activo durante 5 minutos.",
+    "inputLabel": "Pega tu enlace",
+    "placeholder": "https://example.com/mi-enlace",
+    "submit": "Generar código",
+    "submitting": "Generando...",
+    "successTitle": "Tu código está listo",
+    "timerLabel": "Expira en",
+    "resetButton": "Crear otro"
+  },
+  "GetPage": {
+    "title": "Obtener enlace",
+    "description": "Ingresa el código de 4 dígitos que recibiste para recuperar el enlace original. El código debe usarse dentro de los 5 minutos posteriores a su creación.",
+    "inputLabel": "Ingresa tu código",
+    "placeholder": "Ingresa tu código de 4 dígitos",
+    "submit": "Recuperar enlace",
+    "submitting": "Recuperando...",
+    "resetButton": "Obtener otro enlace",
+    "successTitle": "Aquí está tu enlace",
+    "disclaimer": "* Hacer clic en el enlace recuperado lo abrirá en la pestaña actual, mientras que hacer clic en el ícono del enlace lo abrirá en una nueva pestaña. No rastreamos clics ni el comportamiento del usuario, pero ten cuidado al compartir enlaces y solo comparte con partes de confianza."
   },
   "IdeasPage": {
     "title": "Ideas",

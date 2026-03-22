@@ -14,7 +14,9 @@
       "contact": "Contact"
     },
     "links": {
+      "home": "Home",
       "create": "Create link",
+      "get": "Get link",
       "howItWorks": "How it works",
       "cookies": "Cookies",
       "contact": "Contact",
@@ -87,6 +89,28 @@
     "title": "Contact",
     "description": "ShareYourLink is a simple open source project.",
     "body": "If you have any questions or doubts, contact us at"
+  },
+  "CreatePage": {
+    "title": "Create Link",
+    "description": "Paste any URL and get a 4-digit code you can share. The code stays active for 5 minutes.",
+    "inputLabel": "Paste your link",
+    "placeholder": "https://example.com/my-link",
+    "submit": "Generate code",
+    "submitting": "Generating...",
+    "successTitle": "Your code is ready",
+    "timerLabel": "Expires in",
+    "resetButton": "Create another"
+  },
+  "GetPage": {
+    "title": "Get Link",
+    "description": "Enter the 4-digit code you received to retrieve the original link. The code must be used within 5 minutes of creation.",
+    "inputLabel": "Enter your code",
+    "placeholder": "Enter your 4-digit code",
+    "submit": "Retrieve Link",
+    "submitting": "Retrieving...",
+    "successTitle": "Here is your link",
+    "resetButton": "Get another link",
+    "disclaimer": "* Clicking the retrieved link will open it in the tab while clicking the link icon will open it in a new tab. We do not track clicks or user behavior, but please be cautious when sharing links and only share with trusted parties."
   },
   "IdeasPage": {
     "title": "Ideas",
