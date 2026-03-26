@@ -122,5 +122,12 @@
     "title": "Page Not Found",
     "message": "Oops! It looks like the page you're looking for doesn't exist. Let's get you back on track.",
     "backHome": "Back to Home"
+  },
+  "TestOthers": {
+    "title": "Test our other tools",
+    "description": "We have other tools that you might find useful. A Link sharing service, a Docs sharing one and finally a Slides sharing as well. With the same philosophy of simplicity, privacy, and open source. Check them out!",
+    "link": "ShareYourLink",
+    "docs": "ShareYourDocs",
+    "slides": "ShareYourSlides"
   }
 }

@@ -119,5 +119,12 @@
     "title": "Página No Encontrada",
     "message": "¡Oops! Parece que la página que buscas no existe. Déjanos ayudarte a volver al camino correcto.",
     "backHome": "Volver a Inicio"
+  },
+  "TestOthers": {
+    "title": "Prueba nuestras otras herramientas",
+    "description": "Tenemos otras herramientas que pueden serte utiles. Un servicio para compartir enlaces, otro para compartir documentos y por ultimo uno para compartir diapositivas. Con la misma filosofia de simplicidad, privacidad y codigo abierto. Echales un vistazo.",
+    "link": "ShareYourLink",
+    "docs": "ShareYourDocs",
+    "slides": "ShareYourSlides"
   }
 }

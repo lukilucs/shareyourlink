@@ -2,6 +2,13 @@
 
 @custom-variant dark (&:is(.dark *));
 
+.no-route-theme-transition *,
+.no-route-theme-transition *::before,
+.no-route-theme-transition *::after {
+  transition: none !important;
+  animation: none !important;
+}
+
 :root {
   --background: #f6fbf7;
   --foreground: #0f2417;
@@ -183,7 +190,7 @@
   --popover: #ffffff;
   --popover-foreground: #2b200b;
   --primary: #f0be42;
-  --primary-foreground: #3d2d00;
+  --primary-foreground: #fffcf5;
   --secondary: #fef0c7;
   --secondary-foreground: #7a5a0d;
   --muted: #f8f3e6;

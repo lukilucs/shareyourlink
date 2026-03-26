@@ -1,4 +1,5 @@
 import Menu from "@/components/interface/menu";
+import TestOthers from "@/components/test-others";
 import { useTranslations } from "next-intl";
 
 export default function Slides() {
@@ -19,6 +20,7 @@ export default function Slides() {
           <Menu />
         </div>
       </section>
+      <TestOthers page="slides" />
     </>
   );
 }

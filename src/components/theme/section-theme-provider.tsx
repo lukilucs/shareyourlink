@@ -6,6 +6,20 @@ import * as React from "react";
 export function RouteThemeWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
 
+  React.useLayoutEffect(() => {
+    const root = document.documentElement;
+    root.classList.add("no-route-theme-transition");
+
+    const frameId = requestAnimationFrame(() => {
+      root.classList.remove("no-route-theme-transition");
+    });
+
+    return () => {
+      cancelAnimationFrame(frameId);
+      root.classList.remove("no-route-theme-transition");
+    };
+  }, [pathname]);
+
   let themeClass = "";
 
   if (pathname.includes("/docs")) {
@@ -16,7 +30,7 @@ export function RouteThemeWrapper({ children }: { children: React.ReactNode }) {
 
   return (
     <div
-      className={`min-h-screen flex flex-col bg-background text-foreground transition-colors duration-300 ${themeClass}`}
+      className={`min-h-screen flex flex-col bg-background text-foreground ${themeClass}`}
     >
       {children}
     </div>

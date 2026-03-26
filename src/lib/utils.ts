@@ -20,7 +20,7 @@ export function generateRandomRotations(
   numberOfRotations: number,
   maxAngle: number,
 ): number[] {
-  let randomAngles = [];
+  const randomAngles = [];
   for (let i = 0; i < numberOfRotations; i++) {
     const randomAngle = Math.floor(Math.random() * maxAngle) + 1; // Random angle between 1 and maxAngle degrees
     randomAngles.push(randomAngle);

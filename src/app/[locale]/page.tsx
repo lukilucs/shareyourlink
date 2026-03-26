@@ -1,4 +1,5 @@
 import Menu from "@/components/interface/menu";
+import TestOthers from "@/components/test-others";
 import { useTranslations } from "next-intl";
 
 export default function Home() {
@@ -6,7 +7,7 @@ export default function Home() {
 
   return (
     <>
-      <section className="flex min-h-[calc(100dvh-5.5rem)] flex-col justify-center pb-10 md:pb-12  ">
+      <section className="flex min-h-[calc(100dvh-5.5rem)] flex-col justify-center md:pt-8 pb-10 md:pb-12 ">
         <div className="space-y-6 md:space-y-8">
           <h1 className="text-6xl md:text-7xl font-bold text-center">
             {t("title")}
@@ -19,6 +20,7 @@ export default function Home() {
           <Menu />
         </div>
       </section>
+      <TestOthers page="link" />
     </>
   );
 }
