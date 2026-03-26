@@ -10,6 +10,7 @@ import { getMessages } from "next-intl/server";
 
 // Components
 import { ThemeProvider } from "@/components/theme/theme-provider";
+import { RouteThemeWrapper } from "@/components/theme/section-theme-provider";
 import { TopBar } from "@/components/navigation/topbar";
 import { NavBar } from "@/components/navigation/navbar";
 import { Footer } from "@/components/navigation/footer";
@@ -76,10 +77,12 @@ export default async function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <TopBar />
-            <NavBar />
-            {children}
-            <Footer />
+            <RouteThemeWrapper>
+              <TopBar />
+              <NavBar />
+              {children}
+              <Footer />
+            </RouteThemeWrapper>
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>

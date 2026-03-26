@@ -1,7 +1,7 @@
 import Menu from "@/components/interface/menu";
 import { useTranslations } from "next-intl";
 
-export default function Home() {
+export default function Slides() {
   const t = useTranslations("Landing");
 
   return (
@@ -9,7 +9,7 @@ export default function Home() {
       <section className="flex min-h-[calc(100dvh-5.5rem)] flex-col justify-center pb-10 md:pb-12  ">
         <div className="space-y-6 md:space-y-8">
           <h1 className="text-6xl md:text-7xl font-bold text-center">
-            {t("title")}
+            {t("title")} <span className="text-primary">Slides</span>
           </h1>
           <p className="text-2xl md:text-3xl text-center max-w-2xl mx-auto px-4">
             {t("description")}
