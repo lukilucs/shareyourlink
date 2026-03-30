@@ -1,0 +1,12 @@
+import { S3Client } from "@aws-sdk/client-s3";
+
+export const s3Client = new S3Client({
+  endpoint: process.env.S3_ENDPOINT,
+  credentials: {
+    accessKeyId: process.env.S3_ACCESS_KEY!,
+    secretAccessKey: process.env.S3_SECRET_KEY!,
+  },
+  forcePathStyle: true,
+});
+
+export const s3BucketName = process.env.S3_BUCKET_NAME!;

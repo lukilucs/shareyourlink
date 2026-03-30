@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import CreateLinkForm from "@/components/interface/create-link-form";
+import CreateLinkForm from "@/components/interface-links/create-link-form";
 
 interface CreatePageProps {
   params: Promise<{ locale: string }>;

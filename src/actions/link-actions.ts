@@ -4,19 +4,10 @@ import { db } from "@/lib/db";
 import { decryptLink, encryptLink } from "@/lib/hash";
 import { generateUniqueCode } from "@/lib/utils";
 import { headers } from "next/headers";
+import type { CreateLinkActionState, GetLinkActionState } from "@/types/link";
 
 const LINK_TTL_MS = 5 * 60 * 1000;
 const MAX_CREATE_ATTEMPTS = 3;
-
-export type CreateLinkActionState =
-  | { success: true; code: string; expiresAt: number }
-  | { success?: false; error: string }
-  | { success?: false; error?: undefined };
-
-export type GetLinkActionState =
-  | { success: true; link: string }
-  | { success?: false; error: string }
-  | { success?: false; error?: undefined };
 
 // isUniqueCodeCollision checks if the error is a Prisma unique constraint violation for the code field
 function isUniqueCodeCollision(error: unknown): boolean {
