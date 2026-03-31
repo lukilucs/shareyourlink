@@ -1,6 +1,6 @@
 {
   "Metadata": {
-    "title": "ShareYourLink",
+    "title": "ShareYourLinks",
     "description": "Comparte tus enlaces con un codigo simple y permite que otros los accedan facilmente. No mas URLs largas, solo un codigo corto para compartir tus enlaces con cualquiera, en cualquier lugar."
   },
   "LanguageDropdown": {
@@ -33,8 +33,8 @@
     "getLink": "Obtener enlace"
   },
   "Landing": {
-    "title": "Bienvenido a ShareYourLink",
-    "description": "ShareYourLink es una herramienta de gestión de enlaces simple y eficiente que te permite compartir enlaces con facilidad. Ya sea que quieras compartir tus perfiles de redes sociales, portafolio, presentaciones o cualquier otro enlace importante, ShareYourLink tiene todo lo que necesitas. ¡Comienza a compartir!"
+    "title": "Bienvenido a ShareYourLinks",
+    "description": "ShareYourLinks es una herramienta de gestión de enlaces simple y eficiente que te permite compartir enlaces con facilidad. Ya sea que quieras compartir tus perfiles de redes sociales, portafolio, presentaciones o cualquier otro enlace importante, ShareYourLinks tiene todo lo que necesitas. ¡Comienza a compartir!"
   },
   "DocsPage": {
     "description": "Comparte archivos rapido con un codigo de 4 digitos. Sube un PDF, DOC o DOCX y permite que otros lo recuperen en segundos."
@@ -44,7 +44,7 @@
   },
   "HowItWorks": {
     "title": "Cómo funciona",
-    "subtitle": "ShareYourLink es una herramienta de gestión de enlaces simple y eficiente que te permite compartir enlaces con facilidad. Ya sea que quieras compartir tus perfiles de redes sociales, portafolio, presentaciones o cualquier otro enlace importante, ShareYourLink tiene todo lo que necesitas. ¡Comienza a compartir!",
+    "subtitle": "ShareYourLinks es una herramienta de gestión de enlaces simple y eficiente que te permite compartir enlaces con facilidad. Ya sea que quieras compartir tus perfiles de redes sociales, portafolio, presentaciones o cualquier otro enlace importante, ShareYourLinks tiene todo lo que necesitas. ¡Comienza a compartir!",
     "section1Title": "Cómo funciona",
     "section1Description1Title": "Crear enlace",
     "section1Description1Description": "Pega tu enlace, obtendrás un ",
@@ -64,25 +64,25 @@
   },
   "Cookies": {
     "title": "Politica de Cookies",
-    "subtitle": "Codigo abierto, simple y con privacidad primero. En ShareYourLink mantenemos todo intencionalmente simple. No mostramos anuncios, no creamos perfiles de usuarios y no usamos rastreadores invasivos. Solo usamos lo necesario para que la app funcione bien.",
+    "subtitle": "Codigo abierto, simple y con privacidad primero. En ShareYourLinks mantenemos todo intencionalmente simple. No mostramos anuncios, no creamos perfiles de usuarios y no usamos rastreadores invasivos. Solo usamos lo necesario para que la app funcione bien.",
     "what_is_title": "1. Que es una cookie?",
-    "what_is_text": "Una cookie es un archivo pequeno que guarda tu navegador para que un sitio recuerde ajustes basicos. En ShareYourLink esto se limita a comportamiento tecnico, como el idioma.",
+    "what_is_text": "Una cookie es un archivo pequeno que guarda tu navegador para que un sitio recuerde ajustes basicos. En ShareYourLinks esto se limita a comportamiento tecnico, como el idioma.",
     "types_title": "2. Cookies y tecnologías",
     "types_intro": "Solo usamos funcionalidad esencial, analitica respetuosa con la privacidad y proteccion temporal contra abuso en servidor.",
     "th_name": "Servicio / Proveedor",
     "th_type": "Tipo",
     "th_purpose": "Finalidad",
-    "c_tech_name": "ShareYourLink (Primera parte)",
+    "c_tech_name": "ShareYourLinks (Primera parte)",
     "c_tech_type": "Tecnica / Sesion",
     "c_tech_desc": "Guarda tu preferencia de idioma (por ejemplo, NEXT_LOCALE) para mostrar la interfaz en el idioma seleccionado.",
     "c_umami_name": "Umami",
     "c_umami_type": "Analitica anonima",
     "c_umami_desc": "Mide trafico agregado (vistas de pagina, origenes y paginas populares) sin crear perfiles personales.",
-    "c_security_name": "ShareYourLink (Antiabuso)",
+    "c_security_name": "ShareYourLinks (Antiabuso)",
     "c_security_type": "Seguridad",
     "c_security_desc": "Almacena temporalmente datos de IP durante un maximo de 5 minutos para limitar bots, spam y rafagas de solicitudes tipo DDoS.",
     "analytics_title": "3. Analitica de trafico con Umami",
-    "analytics_text": "Usamos Umami para entender el trafico general y mejorar ShareYourLink. No rastreamos usuarios entre sitios web y no creamos perfiles de comportamiento individuales.",
+    "analytics_text": "Usamos Umami para entender el trafico general y mejorar ShareYourLinks. No rastreamos usuarios entre sitios web y no creamos perfiles de comportamiento individuales.",
     "manage_title": "4. Como gestionar cookies",
     "manage_text": "Puedes bloquear o eliminar cookies desde la configuracion de tu navegador en cualquier momento. Si lo haces, algunas funciones basicas como la preferencia de idioma pueden dejar de funcionar correctamente:",
     "manage_chrome": "Google Chrome",
@@ -91,7 +91,7 @@
   },
   "ContactPage": {
     "title": "Contacto",
-    "description": "ShareYourLink es un proyecto simple y de codigo abierto.",
+    "description": "ShareYourLinks es un proyecto simple y de codigo abierto.",
     "body": "Si tienes alguna duda, escribenos a"
   },
   "CreatePage": {
@@ -161,7 +161,7 @@
   },
   "IdeasPage": {
     "title": "Ideas",
-    "description": "ShareYourLink es un proyecto simple de codigo abierto construido para la comunidad.",
+    "description": "ShareYourLinks es un proyecto simple de codigo abierto construido para la comunidad.",
     "body": "Si tienes cualquier duda, escribenos a",
     "contribute": "Si quieres contribuir con una idea o mejora, abre un PR en"
   },
@@ -173,7 +173,7 @@
   "TestOthers": {
     "title": "Prueba nuestras otras herramientas",
     "description": "Tenemos otras herramientas que pueden serte utiles. Un servicio para compartir enlaces, otro para compartir documentos y por ultimo uno para compartir diapositivas. Con la misma filosofia de simplicidad, privacidad y codigo abierto. Echales un vistazo.",
-    "link": "ShareYourLink",
+    "link": "ShareYourLinks",
     "docs": "ShareYourDocs",
     "slides": "ShareYourSlides"
   }

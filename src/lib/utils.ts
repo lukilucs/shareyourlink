@@ -1,4 +1,5 @@
 import { clsx, type ClassValue } from "clsx";
+import { randomInt } from "node:crypto";
 import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
@@ -9,9 +10,8 @@ export function generateUniqueCode(): string {
   const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ123456789"; // Similar characters removed for better readability (O, 0, I)
   let result = "";
 
-  // For now just 4 chars
   for (let i = 0; i < 4; i += 1) {
-    result += chars.charAt(Math.floor(Math.random() * chars.length));
+    result += chars.charAt(randomInt(0, chars.length));
   }
   return result;
 }

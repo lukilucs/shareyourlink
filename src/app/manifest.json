@@ -1,6 +1,6 @@
 {
-  "name": "ShareYourLink",
-  "short_name": "ShareYourLink",
+  "name": "ShareYourLinks",
+  "short_name": "ShareYourLinks",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",

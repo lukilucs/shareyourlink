@@ -38,10 +38,14 @@ export const Footer = () => {
           title: t("links.home"),
           href: homePath.path,
         },
-        { title: t("links.create"), href: homePath.path + "/create" },
+        {
+          title: t("links.create"),
+
+          href: homePath.path === "/" ? "/create" : `${homePath.path}/create`,
+        },
         {
           title: t("links.get"),
-          href: homePath.path + "/get",
+          href: homePath.path === "/" ? "/get" : `${homePath.path}/get`,
         },
       ],
     },
@@ -77,7 +81,7 @@ export const Footer = () => {
       <div className="mx-auto mb-8 max-w-5xl border-b border-border/50 px-6 pb-8">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="block size-fit">
-            <Link href={homePath.path} aria-label="ShareYourLink - Home">
+            <Link href={homePath.path} aria-label="ShareYourLinks - Home">
               <Logo size="2xl" sizeMd="3xl" />
             </Link>
           </div>

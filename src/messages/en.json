@@ -1,6 +1,6 @@
 {
   "Metadata": {
-    "title": "ShareYourLink",
+    "title": "ShareYourLinks",
     "description": "Share your links with a simple code and let others access them easily. No more long URLs, just a short code to share your links with anyone, anywhere."
   },
   "LanguageDropdown": {
@@ -33,8 +33,8 @@
     "getLink": "Get Link"
   },
   "Landing": {
-    "title": "Welcome to ShareYourLink",
-    "description": "ShareYourLink is a simple and efficient link management tool that allows you to share links with ease. Whether you want to share your social media profiles, portfolio, presentations, or any other important links, ShareYourLink has got you covered. Start sharing!"
+    "title": "Welcome to ShareYourLinks",
+    "description": "ShareYourLinks is a simple and efficient link management tool that allows you to share links with ease. Whether you want to share your social media profiles, portfolio, presentations, or any other important links, ShareYourLinks has got you covered. Start sharing!"
   },
   "DocsPage": {
     "description": "Share files quickly with a 4-digit code. Upload a PDF, DOC, or DOCX and let others retrieve it in seconds."
@@ -44,7 +44,7 @@
   },
   "HowItWorks": {
     "title": "How it works",
-    "subtitle": "ShareYourLink is a simple and efficient link management tool that allows you to share links with ease. Whether you want to share your social media profiles, portfolio, presentations, or any other important links, ShareYourLink has got you covered. Start sharing!",
+    "subtitle": "ShareYourLinks is a simple and efficient link management tool that allows you to share links with ease. Whether you want to share your social media profiles, portfolio, presentations, or any other important links, ShareYourLinks has got you covered. Start sharing!",
     "section1Title": "How it works",
     "section1Description1Title": "Create Link",
     "section1Description1Description": "Paste your link, you will get a ",
@@ -64,9 +64,9 @@
   },
   "Cookies": {
     "title": "Cookie Policy",
-    "subtitle": "Open source, simple, and privacy-first. ShareYourLink keeps things intentionally minimal. We do not run ads, we do not build user profiles, and we do not use invasive trackers. We only use what is needed for the app to work properly.",
+    "subtitle": "Open source, simple, and privacy-first. ShareYourLinks keeps things intentionally minimal. We do not run ads, we do not build user profiles, and we do not use invasive trackers. We only use what is needed for the app to work properly.",
     "what_is_title": "1. What is a cookie?",
-    "what_is_text": "A cookie is a small file your browser stores so a site can remember basic settings. On ShareYourLink, this is limited to technical behavior such as language preference.",
+    "what_is_text": "A cookie is a small file your browser stores so a site can remember basic settings. On ShareYourLinks, this is limited to technical behavior such as language preference.",
     "types_title": "2. Cookies and tracking",
     "types_intro": "We only use essential functionality, privacy-friendly analytics, and temporary server-side abuse protection.",
 
@@ -74,17 +74,17 @@
     "th_type": "Type",
     "th_purpose": "Purpose",
 
-    "c_tech_name": "ShareYourLink (First-party)",
+    "c_tech_name": "ShareYourLinks (First-party)",
     "c_tech_type": "Technical / Session",
     "c_tech_desc": "Stores your locale preference (for example, NEXT_LOCALE) so the interface loads in your selected language.",
     "c_umami_name": "Umami",
     "c_umami_type": "Anonymous Analytics",
     "c_umami_desc": "Measures aggregate traffic (page views, referrers, popular pages) without building personal profiles.",
-    "c_security_name": "ShareYourLink (Server-side anti-abuse)",
+    "c_security_name": "ShareYourLinks (Server-side anti-abuse)",
     "c_security_type": "Security",
     "c_security_desc": "Temporarily stores IP address data for up to 5 minutes to limit bots, spam, and DDoS-like request bursts.",
     "analytics_title": "3. Traffic analytics with Umami",
-    "analytics_text": "We use Umami to understand overall traffic and improve ShareYourLink. We do not track users across websites and we do not create individual behavioral profiles.",
+    "analytics_text": "We use Umami to understand overall traffic and improve ShareYourLinks. We do not track users across websites and we do not create individual behavioral profiles.",
 
     "manage_title": "4. How to manage cookies",
     "manage_text": "You can block or delete cookies from your browser settings at any time. If you do, basic features like language preference may stop working as expected:",
@@ -94,7 +94,7 @@
   },
   "ContactPage": {
     "title": "Contact",
-    "description": "ShareYourLink is a simple open source project.",
+    "description": "ShareYourLinks is a simple open source project.",
     "body": "If you have any questions or doubts, contact us at"
   },
   "CreatePage": {
@@ -164,7 +164,7 @@
   },
   "IdeasPage": {
     "title": "Ideas",
-    "description": "ShareYourLink is a simple open source project built for the community.",
+    "description": "ShareYourLinks is a simple open source project built for the community.",
     "body": "If you have any questions, contact us at",
     "contribute": "If you want to contribute an idea or improvement, open a PR on"
   },
@@ -176,7 +176,7 @@
   "TestOthers": {
     "title": "Test our other tools",
     "description": "We have other tools that you might find useful. A Link sharing service, a Docs sharing one and finally a Slides sharing as well. With the same philosophy of simplicity, privacy, and open source. Check them out!",
-    "link": "ShareYourLink",
+    "link": "ShareYourLinks",
     "docs": "ShareYourDocs",
     "slides": "ShareYourSlides"
   }

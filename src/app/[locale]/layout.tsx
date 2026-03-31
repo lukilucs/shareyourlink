@@ -39,9 +39,9 @@ export async function generateMetadata({
       default: t("title"),
     },
     description: t("description"),
-    applicationName: "ShareYourLink",
+    applicationName: "ShareYourLinks",
     appleWebApp: {
-      title: "ShareYourLink",
+      title: "ShareYourLinks",
       statusBarStyle: "default",
     },
     alternates: {
@@ -51,6 +51,26 @@ export async function generateMetadata({
         es: `${baseUrl}/es`,
         "x-default": baseUrl,
       },
+    },
+    openGraph: {
+      title: "ShareYourLinks",
+      description:
+        "Moving a URL from one device to another shouldn't be hard. Drop a link, get a code, and stay in flow.",
+      images: [
+        {
+          url: "/og.png", // Next.js automatically prepends your domain
+          width: 1200,
+          height: 630,
+          alt: "Site preview",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "ShareYourLinks",
+      description:
+        "Moving a URL from one device to another shouldn't be hard. Drop a link, get a code, and stay in flow.",
+      images: ["/og.png"],
     },
   };
 }

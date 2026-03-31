@@ -1,6 +1,6 @@
 # MinIO Production Deployment (Dockploy + Traefik)
 
-This guide configures MinIO for ShareYourLink with private objects, signed URL access, and production compatibility for document preview.
+This guide configures MinIO for ShareYourLinks with private objects, signed URL access, and production compatibility for document preview.
 
 ## Why this setup
 

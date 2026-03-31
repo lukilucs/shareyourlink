@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useMemo, useState } from "react";
+import { useActionState, useEffect, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import DocViewer, { DocViewerRenderers } from "@iamjariwala/react-doc-viewer";
 import { getSlideByCode } from "@/actions/slide-actions";
@@ -10,12 +10,17 @@ import {
   OTP_LENGTH,
   useOtpCodeInput,
 } from "@/lib/form";
+import { configurePdfWorker } from "@/lib/pdf-worker";
 import type { GetSlideActionState } from "@/types/slide";
 
 const initialState: GetSlideActionState = {};
 
 export default function GetSlidesForm() {
   const t = useTranslations("GetSlidePage");
+
+  useEffect(() => {
+    configurePdfWorker();
+  }, []);
 
   const [formKey, setFormKey] = useState(0);
   const [isResultDismissed, setIsResultDismissed] = useState(false);

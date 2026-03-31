@@ -1,13 +1,25 @@
 "use server";
 
 import { db } from "@/lib/db";
+import {
+  getClientIpFromHeaders,
+  hashClientIdentifier,
+} from "@/lib/client-identity";
 import { decryptLink, encryptLink } from "@/lib/hash";
+import {
+  enforceCreateRateLimit,
+  enforceReadFailureRateLimit,
+  enforceReadRateLimit,
+  getLookupCooldown,
+  registerLookupFailure,
+  registerLookupSuccess,
+} from "@/lib/rate-limit";
 import { generateUniqueCode } from "@/lib/utils";
 import { headers } from "next/headers";
 import type { CreateLinkActionState, GetLinkActionState } from "@/types/link";
 
 const LINK_TTL_MS = 5 * 60 * 1000;
-const MAX_CREATE_ATTEMPTS = 3;
+const MAX_CREATE_ATTEMPTS = 5;
 
 // isUniqueCodeCollision checks if the error is a Prisma unique constraint violation for the code field
 function isUniqueCodeCollision(error: unknown): boolean {
@@ -44,7 +56,15 @@ export async function createSharedLink(
   }
 
   const headerList = await headers();
-  const ip = (headerList.get("x-forwarded-for") ?? "127.0.0.1").split(",")[0];
+  const clientId = hashClientIdentifier(getClientIpFromHeaders(headerList));
+  const createLimit = enforceCreateRateLimit(clientId);
+
+  if (!createLimit.allowed) {
+    return {
+      success: false,
+      error: `Too many creations. Try again in ${createLimit.retryAfterSeconds}s`,
+    };
+  }
 
   try {
     const encryptedLink = encryptLink(rawLink);
@@ -62,12 +82,12 @@ export async function createSharedLink(
           });
 
           return tx.sharing_Link.create({
-            data: {
-              code: uniqueCode,
-              link: encryptedLink,
-              identifier: ip,
-            },
-          });
+              data: {
+                code: uniqueCode,
+                link: encryptedLink,
+                identifier: clientId,
+              },
+            });
         });
 
         return {
@@ -101,21 +121,75 @@ export async function getLinkByCode(
   _prevState: GetLinkActionState,
   formData: FormData,
 ): Promise<GetLinkActionState> {
-  const code = formData.get("code") as string;
+  const rawCode = (formData.get("code") as string | null)?.trim() ?? "";
+  const code = rawCode.toUpperCase();
+
+  if (code.length === 0) {
+    return { error: "Code is required" };
+  }
+
+  const headerList = await headers();
+  const clientId = hashClientIdentifier(getClientIpFromHeaders(headerList));
+
+  const readLimit = enforceReadRateLimit(clientId);
+  if (!readLimit.allowed) {
+    return {
+      error: `Too many reads. Try again in ${readLimit.retryAfterSeconds}s`,
+    };
+  }
+
+  const cooldown = getLookupCooldown(clientId);
+  if (!cooldown.allowed) {
+    return {
+      error: `Too many failed attempts. Try again in ${cooldown.retryAfterSeconds}s`,
+    };
+  }
 
   const entry = await db.sharing_Link.findUnique({
-    where: { code: code.toUpperCase() },
+    where: { code },
   });
 
-  if (!entry) return { error: "Code not found" };
+  if (!entry) {
+    const readFailureLimit = enforceReadFailureRateLimit(clientId);
+    registerLookupFailure(clientId);
+
+    if (!readFailureLimit.allowed) {
+      return {
+        error: `Too many failed attempts. Try again in ${readFailureLimit.retryAfterSeconds}s`,
+      };
+    }
+
+    return { error: "Code not found or expired" };
+  }
 
   const isExpired = Date.now() - entry.createdAt.getTime() > LINK_TTL_MS;
-  if (isExpired) return { error: "The link has expired" };
+  if (isExpired) {
+    const readFailureLimit = enforceReadFailureRateLimit(clientId);
+    registerLookupFailure(clientId);
+
+    if (!readFailureLimit.allowed) {
+      return {
+        error: `Too many failed attempts. Try again in ${readFailureLimit.retryAfterSeconds}s`,
+      };
+    }
+
+    return { error: "Code not found or expired" };
+  }
 
   try {
     const link = decryptLink(entry.link);
+    registerLookupSuccess(clientId);
     return { success: true, link };
   } catch {
-    return { error: "The stored link is invalid or has been tampered with" };
+    const readFailureLimit = enforceReadFailureRateLimit(clientId);
+    registerLookupFailure(clientId);
+
+    if (!readFailureLimit.allowed) {
+      return {
+        error: `Too many failed attempts. Try again in ${readFailureLimit.retryAfterSeconds}s`,
+      };
+    }
+
+    return { error: "Code not found or expired" };
   }
 }
