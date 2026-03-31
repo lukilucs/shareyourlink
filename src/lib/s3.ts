@@ -1,11 +1,18 @@
 import { S3Client } from "@aws-sdk/client-s3";
 
+const s3Region = process.env.S3_REGION || "us-east-1";
+
+const s3Credentials = {
+  accessKeyId: process.env.S3_ACCESS_KEY!,
+  secretAccessKey: process.env.S3_SECRET_KEY!,
+};
+
+export const s3Endpoint = process.env.S3_ENDPOINT!;
+
 export const s3Client = new S3Client({
-  endpoint: process.env.S3_ENDPOINT,
-  credentials: {
-    accessKeyId: process.env.S3_ACCESS_KEY!,
-    secretAccessKey: process.env.S3_SECRET_KEY!,
-  },
+  endpoint: s3Endpoint,
+  region: s3Region,
+  credentials: s3Credentials,
   forcePathStyle: true,
 });
 

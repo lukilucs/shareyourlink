@@ -5,22 +5,43 @@ import { useTranslations } from "next-intl";
 import { LanguageDropdown } from "@/components/language-dropdown";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
 import PixelGithubIcon from "@/components/assets/githubLogo";
+import { usePathname } from "next/navigation";
 
 export const Footer = () => {
   const t = useTranslations("Footer");
 
+  const pathname = usePathname();
+  const getHomePath = () => {
+    if (pathname.includes("/docs")) return { path: "/docs", label: "Docs" };
+    if (pathname.includes("/slides"))
+      return { path: "/slides", label: "Slides" };
+    return { path: "/", label: "" };
+  };
+  const homePath = getHomePath();
+
   const links = [
+    {
+      group: t("sections.tools"),
+      items: [
+        {
+          title: "ShareYourLinks",
+          href: "/",
+        },
+        { title: "ShareYourLinks Docs", href: "/docs" },
+        { title: "ShareYourLinks Slides", href: "/slides" },
+      ],
+    },
     {
       group: t("sections.product"),
       items: [
         {
           title: t("links.home"),
-          href: "/",
+          href: homePath.path,
         },
-        { title: t("links.create"), href: "/create" },
+        { title: t("links.create"), href: homePath.path + "/create" },
         {
           title: t("links.get"),
-          href: "/get",
+          href: homePath.path + "/get",
         },
       ],
     },
@@ -56,7 +77,7 @@ export const Footer = () => {
       <div className="mx-auto mb-8 max-w-5xl border-b border-border/50 px-6 pb-8">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="block size-fit">
-            <Link href="/" aria-label="ShareYourLink - Home">
+            <Link href={homePath.path} aria-label="ShareYourLink - Home">
               <Logo size="2xl" sizeMd="3xl" />
             </Link>
           </div>
@@ -81,40 +102,29 @@ export const Footer = () => {
         </div>
       </div>
       <div className="mx-auto max-w-5xl px-6">
-        <div className="max-w-5xl px-6 ">
-          <div className="grid grid-cols-3 gap-8">
-            {links.map((link, index) => (
-              <div
-                key={index}
-                className="flex flex-col items-center space-y-4 text-xl md:items-start"
-              >
-                <span className="block text-2xl font-bold tracking-wide text-foreground">
-                  {link.group}
-                </span>
-                <div className="flex flex-col items-center space-y-3 md:items-start">
-                  {link.items.map((item, idx) => (
-                    <span key={idx}>
-                      {item.href === "#" ? (
-                        <Link
-                          href="#"
-                          className="text-muted-foreground transition-colors duration-200 hover:text-primary hover:underline"
-                        >
-                          {item.title}
-                        </Link>
-                      ) : (
-                        <Link
-                          href={item.href}
-                          className="text-muted-foreground transition-colors duration-200 hover:text-primary hover:underline"
-                        >
-                          {item.title}
-                        </Link>
-                      )}
-                    </span>
-                  ))}
-                </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12">
+          {links.map((link, index) => (
+            <div
+              key={index}
+              className="flex w-full flex-col items-center md:items-start space-y-4 text-xl"
+            >
+              <span className="block text-2xl font-bold tracking-wide text-foreground">
+                {link.group}
+              </span>
+
+              <div className="flex flex-col items-center md:items-start space-y-3">
+                {link.items.map((item, idx) => (
+                  <Link
+                    key={idx}
+                    href={item.href}
+                    className="text-muted-foreground transition-colors duration-200 hover:text-primary hover:underline text-base md:text-lg"
+                  >
+                    {item.title}
+                  </Link>
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
         <div className="mt-16 flex flex-wrap items-end justify-between gap-6 border-t border-border/50 pt-8 text-2xl">
           <div className="order-first">

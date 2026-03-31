@@ -11,7 +11,8 @@
     "sections": {
       "product": "Producto",
       "resources": "Recursos",
-      "contact": "Contacto"
+      "contact": "Contacto",
+      "tools": "Herramientas"
     },
     "links": {
       "home": "Inicio",
@@ -34,6 +35,12 @@
   "Landing": {
     "title": "Bienvenido a ShareYourLink",
     "description": "ShareYourLink es una herramienta de gestión de enlaces simple y eficiente que te permite compartir enlaces con facilidad. Ya sea que quieras compartir tus perfiles de redes sociales, portafolio, presentaciones o cualquier otro enlace importante, ShareYourLink tiene todo lo que necesitas. ¡Comienza a compartir!"
+  },
+  "DocsPage": {
+    "description": "Comparte archivos rapido con un codigo de 4 digitos. Sube un PDF, DOC o DOCX y permite que otros lo recuperen en segundos."
+  },
+  "SlidesPage": {
+    "description": "Comparte presentaciones rapido con un codigo de 4 digitos. Sube un PPT o PPTX y recuperalo de forma segura en minutos."
   },
   "HowItWorks": {
     "title": "Cómo funciona",
@@ -108,6 +115,49 @@
     "resetButton": "Obtener otro enlace",
     "successTitle": "Aquí está tu enlace",
     "disclaimer": "* Hacer clic en el enlace recuperado lo abrirá en una nueva pestaña. No rastreamos clics ni el comportamiento del usuario, pero ten cuidado al compartir enlaces y solo comparte con partes de confianza."
+  },
+  "CreateDocPage": {
+    "title": "Crear documento",
+    "description": "Sube un archivo PDF, DOC o DOCX y obtiene un codigo de 4 digitos para compartir. El codigo y archivo estan disponibles durante 5 minutos.",
+    "inputLabel": "Sube tu documento",
+    "supportedFormats": "Formatos compatibles: .pdf, .doc, .docx",
+    "submit": "Generar codigo",
+    "submitting": "Subiendo...",
+    "successTitle": "Tu codigo esta listo",
+    "timerLabel": "Expira en",
+    "resetButton": "Subir otro"
+  },
+  "GetDocPage": {
+    "title": "Obtener documento",
+    "description": "Ingresa el codigo de 4 digitos para recuperar y previsualizar el documento original. El codigo debe usarse dentro de los 5 minutos.",
+    "inputLabel": "Ingresa tu codigo",
+    "submit": "Recuperar documento",
+    "submitting": "Recuperando...",
+    "successTitle": "Aqui esta tu documento",
+    "downloadButton": "Descargar archivo original",
+    "resetButton": "Obtener otro documento",
+    "disclaimer": "* Los documentos se recuperan con enlaces privados temporales y se eliminan automaticamente tras 5 minutos."
+  },
+  "CreateSlidePage": {
+    "title": "Crear diapositiva",
+    "description": "Sube un archivo PPT o PPTX y obtiene un codigo de 4 digitos para compartir. El codigo y archivo estan disponibles durante 5 minutos.",
+    "inputLabel": "Sube tu diapositiva",
+    "supportedFormats": "Formatos compatibles: .ppt, .pptx",
+    "submit": "Generar codigo",
+    "submitting": "Subiendo...",
+    "successTitle": "Tu codigo esta listo",
+    "timerLabel": "Expira en",
+    "resetButton": "Subir otra"
+  },
+  "GetSlidePage": {
+    "title": "Obtener diapositiva",
+    "description": "Ingresa el codigo de 4 digitos para recuperar y previsualizar el archivo de diapositiva original. El codigo debe usarse dentro de los 5 minutos.",
+    "inputLabel": "Ingresa tu codigo",
+    "submit": "Recuperar diapositiva",
+    "submitting": "Recuperando...",
+    "successTitle": "Aqui esta tu diapositiva",
+    "resetButton": "Obtener otra diapositiva",
+    "disclaimer": "* Las diapositivas se recuperan con enlaces privados temporales y se eliminan automaticamente tras 5 minutos."
   },
   "IdeasPage": {
     "title": "Ideas",

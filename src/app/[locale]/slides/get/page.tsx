@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import CreateDocForm from "@/components/interface-docs/create-docs-form";
+import GetSlidesForm from "@/components/interface-slides/get-slides-form";
 
-interface CreateDocPageProps {
+interface GetSlidePageProps {
   params: Promise<{ locale: string }>;
 }
 
 export async function generateMetadata({
   params,
-}: CreateDocPageProps): Promise<Metadata> {
+}: GetSlidePageProps): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "CreateDocPage" });
+  const t = await getTranslations({ locale, namespace: "GetSlidePage" });
 
   return {
     title: t("title"),
@@ -18,15 +18,15 @@ export async function generateMetadata({
   };
 }
 
-const CreateDocPage = async () => {
-  const t = await getTranslations("CreateDocPage");
+const GetSlidePage = async () => {
+  const t = await getTranslations("GetSlidePage");
 
   return (
     <section className="py-10 md:py-12">
       <div className="container mx-auto px-6 max-w-6xl space-y-8 md:space-y-10">
         <div className="flex items-center gap-6 border-b-4 border-primary pb-4">
           <span className="bg-primary text-primary-foreground text-4xl font-black px-4 py-2 rotate-3">
-            +
+            /
           </span>
           <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter">
             {t("title")}
@@ -37,10 +37,10 @@ const CreateDocPage = async () => {
           {t("description")}
         </p>
 
-        <CreateDocForm />
+        <GetSlidesForm />
       </div>
     </section>
   );
 };
 
-export default CreateDocPage;
+export default GetSlidePage;

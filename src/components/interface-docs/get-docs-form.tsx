@@ -2,20 +2,20 @@
 
 import { useActionState, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
-import { getLinkByCode } from "@/actions/link-actions";
+import DocViewer, { DocViewerRenderers } from "@iamjariwala/react-doc-viewer";
+import { getDocByCode } from "@/actions/doc-actions";
 import { Button } from "@/components/ui/button";
 import {
   getDeterministicRotations,
   OTP_LENGTH,
   useOtpCodeInput,
 } from "@/lib/form";
-import type { GetLinkActionState } from "@/types/link";
+import type { GetDocActionState } from "@/types/doc";
 
-const initialState: GetLinkActionState = {};
+const initialState: GetDocActionState = {};
 
-export default function GetLinkForm() {
-  const t = useTranslations("GetPage");
+export default function GetDocForm() {
+  const t = useTranslations("GetDocPage");
 
   const [formKey, setFormKey] = useState(0);
   const [isResultDismissed, setIsResultDismissed] = useState(false);
@@ -38,12 +38,12 @@ export default function GetLinkForm() {
   );
 
   const [state, formAction, isPending] = useActionState(
-    getLinkByCode,
+    getDocByCode,
     initialState,
   );
 
-  const generatedLink = state.success && !isResultDismissed ? state.link : null;
-  const showForm = !generatedLink;
+  const generatedDoc = state.success && !isResultDismissed ? state : null;
+  const showForm = !generatedDoc;
 
   const handleReset = () => {
     setIsResultDismissed(true);
@@ -134,18 +134,36 @@ export default function GetLinkForm() {
         <>
           <section className="border-4 border-primary bg-secondary/30 p-5 md:p-6 space-y-4">
             <p className="text-2xl md:text-4xl font-bold uppercase">
-              {t("successTitle")}:
+              {t("successTitle")}
             </p>
 
-            <div className="flex items-center">
-              <Link
-                href={generatedLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-3xl md:text-5xl font-black text-primary underline transition-transform duration-300 hover:text-primary/80 break-all"
-              >
-                {generatedLink}
-              </Link>
+            <p className="text-lg md:text-2xl font-bold break-all">
+              {generatedDoc.name}
+            </p>
+
+            <div className="h-auto w-full border-2 border-primary/30 bg-card">
+              <DocViewer
+                documents={[
+                  {
+                    uri: generatedDoc.url,
+                    fileName: generatedDoc.name,
+                  },
+                ]}
+                prefetchMethod="GET"
+                pluginRenderers={DocViewerRenderers}
+                config={{
+                  header: {
+                    disableHeader: false,
+                    retainURLParams: true,
+                  },
+                  pdfVerticalScrollByDefault: false,
+                }}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  backgroundColor: "transparent",
+                }}
+              />
             </div>
 
             <Button

@@ -2,30 +2,29 @@
 
 import { useActionState, useEffect, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
-import { createSharedLink } from "@/actions/link-actions";
+import { createSharedSlide } from "@/actions/slide-actions";
 import { formatTimer, generateRandomRotations } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import type { CreateLinkActionState } from "@/types/link";
+import type { CreateSlideActionState } from "@/types/slide";
 
 const TIMER_SECONDS = 5 * 60;
-const initialState: CreateLinkActionState = {};
+const initialState: CreateSlideActionState = {};
 const rotations = generateRandomRotations(4, 5);
 
-export default function CreateLinkForm() {
-  const t = useTranslations("CreatePage");
+export default function CreateSlidesForm() {
+  const t = useTranslations("CreateSlidePage");
 
   const [formKey, setFormKey] = useState(0);
   const [isResultDismissed, setIsResultDismissed] = useState(false);
 
   const [state, formAction, isPending] = useActionState(
-    createSharedLink,
+    createSharedSlide,
     initialState,
   );
 
   const [now, setNow] = useState<number>(() => Date.now());
 
   const generatedCode = state.success && !isResultDismissed ? state.code : null;
-
   const showForm = !generatedCode;
 
   const secondsLeft =
@@ -34,7 +33,9 @@ export default function CreateLinkForm() {
       : TIMER_SECONDS;
 
   useEffect(() => {
-    if (!generatedCode || secondsLeft <= 0) return;
+    if (!generatedCode || secondsLeft <= 0) {
+      return;
+    }
 
     const intervalId = window.setInterval(() => {
       setNow(Date.now());
@@ -60,17 +61,22 @@ export default function CreateLinkForm() {
           onSubmit={() => setIsResultDismissed(false)}
           className="space-y-4"
         >
-          <label htmlFor="url" className="block text-2xl md:text-3xl font-bold">
+          <label htmlFor="file" className="block text-2xl md:text-3xl font-bold">
             {t("inputLabel")}
           </label>
+
           <input
-            id="url"
-            name="url"
-            type="url"
+            id="file"
+            name="file"
+            type="file"
             required
-            className="w-full border-4 border-primary/20 bg-background px-4 py-3 text-xl md:text-2xl outline-none transition-colors focus:border-primary"
-            placeholder={t("placeholder")}
+            accept=".ppt,.pptx"
+            className="w-full border-4 border-primary/20 bg-background px-4 py-3 text-xl md:text-2xl outline-none transition-colors file:mr-4 file:border-0 file:bg-primary file:px-4 file:py-2 file:font-bold file:text-primary-foreground focus:border-primary"
           />
+
+          <p className="text-base md:text-lg text-muted-foreground">
+            {t("supportedFormats")}
+          </p>
 
           <Button
             type="submit"
@@ -87,11 +93,11 @@ export default function CreateLinkForm() {
       ) : (
         <section className="border-4 border-primary bg-secondary/30 p-5 md:p-6 space-y-4">
           <p className="text-2xl md:text-3xl font-bold uppercase">
-            {t("successTitle")}:
+            {t("successTitle")}
           </p>
 
           <div className="flex flex-row gap-4 items-center justify-center p-10">
-            {generatedCode.split("").map((digit: string, index: number) => {
+            {generatedCode.split("").map((digit, index) => {
               const finalAngle = rotations[index];
 
               return (
@@ -124,7 +130,7 @@ export default function CreateLinkForm() {
           <div className="border-t-2 border-primary/30 pt-4 flex items-baseline gap-2">
             <p className="text-xl md:text-2xl font-bold">{t("timerLabel")}</p>
             <p
-              className={`text-3xl md:text-4xl font-bold transition-colors ${secondsLeft === 0 && "text-destructive"}`}
+              className={`text-3xl md:text-4xl font-bold transition-colors ${secondsLeft === 0 ? "text-destructive" : ""}`}
             >
               {timerLabel}
             </p>

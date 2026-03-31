@@ -11,7 +11,8 @@
     "sections": {
       "product": "Product",
       "resources": "Resources",
-      "contact": "Contact"
+      "contact": "Contact",
+      "tools": "Tools"
     },
     "links": {
       "home": "Home",
@@ -34,6 +35,12 @@
   "Landing": {
     "title": "Welcome to ShareYourLink",
     "description": "ShareYourLink is a simple and efficient link management tool that allows you to share links with ease. Whether you want to share your social media profiles, portfolio, presentations, or any other important links, ShareYourLink has got you covered. Start sharing!"
+  },
+  "DocsPage": {
+    "description": "Share files quickly with a 4-digit code. Upload a PDF, DOC, or DOCX and let others retrieve it in seconds."
+  },
+  "SlidesPage": {
+    "description": "Share presentation files quickly with a 4-digit code. Upload a PPT or PPTX and retrieve it securely within minutes."
   },
   "HowItWorks": {
     "title": "How it works",
@@ -111,6 +118,49 @@
     "successTitle": "Here is your link",
     "resetButton": "Get another link",
     "disclaimer": "* Clicking the retrieved link will open it in a new tab. We do not track clicks or user behavior, but please be cautious when sharing links and only share with trusted parties."
+  },
+  "CreateDocPage": {
+    "title": "Create Doc",
+    "description": "Upload a PDF, DOC or DOCX file and get a 4-digit code to share. The code and file are available for 5 minutes.",
+    "inputLabel": "Upload your document",
+    "supportedFormats": "Supported formats: .pdf, .doc, .docx",
+    "submit": "Generate code",
+    "submitting": "Uploading...",
+    "successTitle": "Your code is ready",
+    "timerLabel": "Expires in",
+    "resetButton": "Upload another"
+  },
+  "GetDocPage": {
+    "title": "Get Doc",
+    "description": "Enter the 4-digit code to retrieve and preview the original document. The code must be used within 5 minutes.",
+    "inputLabel": "Enter your code",
+    "submit": "Retrieve Document",
+    "submitting": "Retrieving...",
+    "successTitle": "Here is your document",
+    "downloadButton": "Download original file",
+    "resetButton": "Get another document",
+    "disclaimer": "* Documents are fetched using temporary private access links and are automatically removed after 5 minutes."
+  },
+  "CreateSlidePage": {
+    "title": "Create Slide",
+    "description": "Upload a PPT or PPTX file and get a 4-digit code to share. The code and file are available for 5 minutes.",
+    "inputLabel": "Upload your slide",
+    "supportedFormats": "Supported formats: .ppt, .pptx",
+    "submit": "Generate code",
+    "submitting": "Uploading...",
+    "successTitle": "Your code is ready",
+    "timerLabel": "Expires in",
+    "resetButton": "Upload another"
+  },
+  "GetSlidePage": {
+    "title": "Get Slide",
+    "description": "Enter the 4-digit code to retrieve and preview the original slide file. The code must be used within 5 minutes.",
+    "inputLabel": "Enter your code",
+    "submit": "Retrieve Slide",
+    "submitting": "Retrieving...",
+    "successTitle": "Here is your slide",
+    "resetButton": "Get another slide",
+    "disclaimer": "* Slides are fetched using temporary private access links and are automatically removed after 5 minutes."
   },
   "IdeasPage": {
     "title": "Ideas",

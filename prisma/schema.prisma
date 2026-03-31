@@ -16,3 +16,15 @@ model Sharing_Link {
 
   @@index([createdAt])
 }
+
+model Sharing_Doc {
+  id         String   @id @default(uuid())
+  code       String   @unique
+  fileKey    String   @db.Text
+  fileName   String
+  fileType   String
+  identifier String
+  createdAt  DateTime @default(now())
+
+  @@index([createdAt])
+}

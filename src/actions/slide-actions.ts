@@ -8,12 +8,15 @@ import { headers } from "next/headers";
 import { db } from "@/lib/db";
 import { generateUniqueCode } from "@/lib/utils";
 import { s3BucketName, s3Client, s3Endpoint } from "@/lib/s3";
-import type { CreateDocActionState, GetDocActionState } from "@/types/doc";
+import type {
+  CreateSlideActionState,
+  GetSlideActionState,
+} from "@/types/slide";
 
-const DOC_TTL_MS = 5 * 60 * 1000;
+const SLIDE_TTL_MS = 5 * 60 * 1000;
 const MAX_CREATE_ATTEMPTS = 3;
 const MAX_FILE_SIZE_BYTES = 5 * 1024 * 1024;
-const ALLOWED_EXTENSIONS = ["pdf", "doc", "docx"] as const;
+const ALLOWED_EXTENSIONS = ["ppt", "pptx"] as const;
 
 type AllowedExtension = (typeof ALLOWED_EXTENSIONS)[number];
 
@@ -43,12 +46,12 @@ async function deleteFileFromS3(fileKey: string): Promise<void> {
   await s3Client.send(command);
 }
 
-async function uploadDocToS3(
+async function uploadSlideToS3(
   file: File,
   code: string,
   extension: AllowedExtension,
 ): Promise<string> {
-  const fileKey = `docs/${code}.${extension}`;
+  const fileKey = `slides/${code}.${extension}`;
   const arrayBuffer = await file.arrayBuffer();
   const buffer = Buffer.from(arrayBuffer);
 
@@ -72,11 +75,12 @@ function buildDirectFileUrl(fileKey: string): string {
   return `${endpoint}/${s3BucketName}/${fileKey}`;
 }
 
-async function cleanupExpiredDocs(): Promise<void> {
-  const fiveMinutesAgo = new Date(Date.now() - DOC_TTL_MS);
-  const expiredDocs = await db.sharing_Doc.findMany({
+async function cleanupExpiredSlides(): Promise<void> {
+  const fiveMinutesAgo = new Date(Date.now() - SLIDE_TTL_MS);
+  const expiredSlides = await db.sharing_Doc.findMany({
     where: {
       createdAt: { lt: fiveMinutesAgo },
+      fileKey: { startsWith: "slides/" },
     },
     select: {
       id: true,
@@ -84,27 +88,27 @@ async function cleanupExpiredDocs(): Promise<void> {
     },
   });
 
-  if (expiredDocs.length === 0) {
+  if (expiredSlides.length === 0) {
     return;
   }
 
   await Promise.allSettled(
-    expiredDocs.map((doc) => deleteFileFromS3(doc.fileKey)),
+    expiredSlides.map((slide) => deleteFileFromS3(slide.fileKey)),
   );
 
   await db.sharing_Doc.deleteMany({
     where: {
       id: {
-        in: expiredDocs.map((doc) => doc.id),
+        in: expiredSlides.map((slide) => slide.id),
       },
     },
   });
 }
 
-export async function createSharedDoc(
-  _prevState: CreateDocActionState,
+export async function createSharedSlide(
+  _prevState: CreateSlideActionState,
   formData: FormData,
-): Promise<CreateDocActionState> {
+): Promise<CreateSlideActionState> {
   const file = formData.get("file");
 
   if (!(file instanceof File) || file.size <= 0) {
@@ -125,7 +129,7 @@ export async function createSharedDoc(
   if (!isAllowedExtension(extension)) {
     return {
       success: false,
-      error: "Only .pdf, .doc and .docx files are allowed",
+      error: "Only .ppt and .pptx files are allowed",
     };
   }
 
@@ -133,11 +137,11 @@ export async function createSharedDoc(
   const ip = (headerList.get("x-forwarded-for") ?? "127.0.0.1").split(",")[0];
 
   try {
-    await cleanupExpiredDocs();
+    await cleanupExpiredSlides();
 
     for (let attempt = 0; attempt < MAX_CREATE_ATTEMPTS; attempt += 1) {
       const uniqueCode = generateUniqueCode();
-      const fileKey = `docs/${uniqueCode}.${extension}`;
+      const fileKey = `slides/${uniqueCode}.${extension}`;
 
       try {
         const newEntry = await db.sharing_Doc.create({
@@ -151,7 +155,7 @@ export async function createSharedDoc(
         });
 
         try {
-          await uploadDocToS3(file, uniqueCode, extension);
+          await uploadSlideToS3(file, uniqueCode, extension);
         } catch (s3Error) {
           console.error("S3 upload error, rolling back DB entry:", s3Error);
           await db.sharing_Doc.delete({ where: { id: newEntry.id } });
@@ -161,7 +165,7 @@ export async function createSharedDoc(
         return {
           success: true,
           code: newEntry.code,
-          expiresAt: newEntry.createdAt.getTime() + DOC_TTL_MS,
+          expiresAt: newEntry.createdAt.getTime() + SLIDE_TTL_MS,
         };
       } catch (error) {
         if (isUniqueCodeCollision(error) && attempt < MAX_CREATE_ATTEMPTS - 1) {
@@ -179,15 +183,15 @@ export async function createSharedDoc(
   } catch {
     return {
       success: false,
-      error: "There was a server error while saving the document",
+      error: "There was a server error while saving the slide",
     };
   }
 }
 
-export async function getDocByCode(
-  _prevState: GetDocActionState,
+export async function getSlideByCode(
+  _prevState: GetSlideActionState,
   formData: FormData,
-): Promise<GetDocActionState> {
+): Promise<GetSlideActionState> {
   const rawCode = (formData.get("code") as string | null)?.trim() ?? "";
   const code = rawCode.toUpperCase();
 
@@ -195,29 +199,29 @@ export async function getDocByCode(
     return { error: "Code is required" };
   }
 
-  await cleanupExpiredDocs();
+  await cleanupExpiredSlides();
 
   const entry = await db.sharing_Doc.findUnique({
     where: { code },
   });
 
-  if (!entry) {
+  if (!entry || !entry.fileKey.startsWith("slides/")) {
     return { error: "Code not found" };
   }
 
-  const isExpired = Date.now() - entry.createdAt.getTime() > DOC_TTL_MS;
+  const isExpired = Date.now() - entry.createdAt.getTime() > SLIDE_TTL_MS;
   if (isExpired) {
     await Promise.allSettled([
       deleteFileFromS3(entry.fileKey),
       db.sharing_Doc.delete({ where: { id: entry.id } }),
     ]);
 
-    return { error: "The document has expired" };
+    return { error: "The slide has expired" };
   }
 
   try {
     if (!isAllowedExtension(entry.fileType)) {
-      return { error: "The stored document type is not supported" };
+      return { error: "The stored slide type is not supported" };
     }
 
     const url = buildDirectFileUrl(entry.fileKey);
@@ -229,6 +233,6 @@ export async function getDocByCode(
       fileType: entry.fileType,
     };
   } catch {
-    return { error: "There was a server error while retrieving the document" };
+    return { error: "There was a server error while retrieving the slide" };
   }
 }

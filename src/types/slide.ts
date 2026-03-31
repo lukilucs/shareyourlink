@@ -1,14 +1,14 @@
-export type CreateDocActionState =
+export type CreateSlideActionState =
   | { success: true; code: string; expiresAt: number }
   | { success?: false; error: string }
   | { success?: false; error?: undefined };
 
-export type GetDocActionState =
+export type GetSlideActionState =
   | {
       success: true;
       name: string;
       url: string;
-      fileType: "pdf" | "doc" | "docx";
+      fileType: "ppt" | "pptx";
     }
   | { success?: false; error: string }
   | { success?: false; error?: undefined };

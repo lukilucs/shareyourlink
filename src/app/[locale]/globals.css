@@ -311,3 +311,17 @@
     @apply bg-background text-foreground font-sans;
   }
 }
+
+.doc-preview-viewer .rdv-container,
+.doc-preview-viewer .rdv-docx-viewer,
+.doc-preview-viewer .rdv-docx {
+  background: transparent !important;
+}
+
+.doc-preview-viewer .rdv-docx {
+  padding: 0 !important;
+}
+
+.doc-preview-viewer .rdv-docx section {
+  margin: 0 auto 1rem !important;
+}

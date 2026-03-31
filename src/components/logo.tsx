@@ -60,7 +60,7 @@ export const Logo = ({ size = "3xl", sizeMd }: LogoProps) => {
   return (
     <div className={`${pixelFont.className} tracking-wider`}>
       <p
-        className={`${baseClass} ${mdClass} text-primary transition-all duration-300`}
+        className={`${baseClass} ${mdClass} text-primary transition-all duration-300 flex items-baseline gap-3`}
       >
         SHARE YOUR LINK
       </p>
