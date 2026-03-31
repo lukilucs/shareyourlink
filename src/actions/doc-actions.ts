@@ -21,7 +21,7 @@ import {
   registerLookupSuccess,
 } from "@/lib/rate-limit";
 import { generateUniqueCode } from "@/lib/utils";
-import { s3BucketName, s3Client } from "@/lib/s3";
+import { s3BucketName, s3Client, s3PublicClient } from "@/lib/s3";
 import type { CreateDocActionState, GetDocActionState } from "@/types/doc";
 
 const DOC_TTL_MS = 5 * 60 * 1000;
@@ -51,6 +51,30 @@ const ALLOWED_MIME_BY_EXTENSION: Record<AllowedExtension, readonly string[]> = {
 };
 
 type AllowedExtension = (typeof ALLOWED_EXTENSIONS)[number];
+
+function getS3ErrorMeta(error: unknown): Record<string, unknown> {
+  if (!(error instanceof Error)) {
+    return { error };
+  }
+
+  const metadata =
+    typeof error === "object" &&
+    error !== null &&
+    "$metadata" in error &&
+    typeof (error as { $metadata?: unknown }).$metadata === "object"
+      ? (error as { $metadata?: Record<string, unknown> }).$metadata
+      : undefined;
+
+  return {
+    name: error.name,
+    message: error.message,
+    code:
+      typeof error === "object" && error !== null && "Code" in error
+        ? (error as { Code?: unknown }).Code
+        : undefined,
+    metadata,
+  };
+}
 
 function isUniqueCodeCollision(error: unknown): boolean {
   return (
@@ -140,9 +164,11 @@ async function buildPresignedFileUrl(fileKey: string): Promise<string> {
     Key: fileKey,
   });
 
-  return getSignedUrl(s3Client, command, {
+  const presignedUrl = await getSignedUrl(s3PublicClient, command, {
     expiresIn: PRESIGNED_URL_TTL_SECONDS,
   });
+
+  return `/api/file?url=${encodeURIComponent(presignedUrl)}`;
 }
 
 async function cleanupExpiredDocs(): Promise<void> {
@@ -241,8 +267,11 @@ export async function createSharedDoc(
 
         try {
           await uploadDocToS3(validatedBuffer, uniqueCode, extension);
-        } catch {
-          console.error("S3 upload failed while creating document share");
+        } catch (error) {
+          console.error("S3 upload failed while creating document share", {
+            fileKey,
+            ...getS3ErrorMeta(error),
+          });
           await db.sharing_Doc.delete({ where: { id: newEntry.id } });
           throw new Error("S3 upload failed");
         }

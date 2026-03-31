@@ -8,6 +8,7 @@ const s3Credentials = {
 };
 
 export const s3Endpoint = process.env.S3_ENDPOINT!;
+export const s3PublicEndpoint = process.env.S3_PUBLIC_ENDPOINT || s3Endpoint;
 
 export const s3Client = new S3Client({
   endpoint: s3Endpoint,
@@ -15,5 +16,15 @@ export const s3Client = new S3Client({
   credentials: s3Credentials,
   forcePathStyle: true,
 });
+
+export const s3PublicClient =
+  s3PublicEndpoint === s3Endpoint
+    ? s3Client
+    : new S3Client({
+        endpoint: s3PublicEndpoint,
+        region: s3Region,
+        credentials: s3Credentials,
+        forcePathStyle: true,
+      });
 
 export const s3BucketName = process.env.S3_BUCKET_NAME!;

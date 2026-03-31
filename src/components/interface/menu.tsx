@@ -1,13 +1,17 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { usePathname } from "next/navigation";
-import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { usePathname } from "next/navigation";
 
 const Menu = () => {
   const t = useTranslations("Menu");
-  const pathname = usePathname();
+  let pathname = usePathname();
+
+  if (pathname === "/") {
+    pathname = "";
+  }
 
   return (
     <div className="flex flex-col md:flex-row items-stretch justify-center gap-6 p-8 pt-0 w-full max-w-7xl mx-auto">
